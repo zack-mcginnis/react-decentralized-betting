@@ -22,7 +22,7 @@ export const initializeWeb3 = async () => {
     } else {
       console.warn("web3 undefined. setting to localhost")
       // set the provider you want from Web3.providers
-      web3 = new Web3('http://localhost:7545');
+      web3 = new Web3('http://localhost:8545');
     }
   }
 }
