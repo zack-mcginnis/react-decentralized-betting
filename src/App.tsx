@@ -5,10 +5,14 @@ import { initializeWeb3, getWeb3, getBlockNumber} from './services/web3';
 
 function App() {
 
+
   const initialize = async () => {
     await initializeWeb3();
     const web3 = await getWeb3();
     console.log(web3);
+
+    let accounts = await web3.eth.getAccounts();
+
   }
 
   initialize();

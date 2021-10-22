@@ -4,6 +4,23 @@ import BigNumber from 'bignumber.js';
 
 let web3;
 
+const initializeContract = () => {
+  // Step 1: Get a contract into my application
+  const json = require("../abi/BetCore.json");
+
+  // Step 2: Turn that contract into an abstraction I can use
+  const contract = require("@truffle/contract");
+  const BetCore = contract(json);
+
+  // Step 3: Provision the contract with a web3 provider
+  BetCore.setProvider(new Web3.providers.HttpProvider("http://127.0.0.1:8545"));
+
+  // Step 4: Use the contract!
+  BetCore.deployed().then(function(deployed) {
+    console.log(deployed)
+  });
+}
+
 export const initializeWeb3 = async () => {
   if (window.ethereum != null) {
     web3 = new Web3(window.ethereum);
@@ -25,6 +42,8 @@ export const initializeWeb3 = async () => {
       web3 = new Web3('http://localhost:8545');
     }
   }
+
+  initializeContract();
 }
 
 export const getWeb3 = async () => {
