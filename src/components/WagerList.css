@@ -1,0 +1,8 @@
+
+.center-screen {
+    display: flex;
+    flex-wrap: wrap;
+    height: 90vh;
+    margin: 50px;
+    border: solid;
+}

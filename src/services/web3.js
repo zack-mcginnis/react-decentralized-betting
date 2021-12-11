@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
-import Web3 from 'web3';
-import BigNumber from 'bignumber.js';
+import Web3 from "web3";
+// import BigNumber from "bignumber.js";
 
 let web3;
 
@@ -17,9 +17,9 @@ const initializeContract = () => {
 
   // Step 4: Use the contract!
   BetCore.deployed().then(function(deployed) {
-    console.log(deployed)
+    console.log(deployed);
   });
-}
+};
 
 export const initializeWeb3 = async () => {
   if (window.ethereum != null) {
@@ -30,32 +30,32 @@ export const initializeWeb3 = async () => {
       // Acccounts now exposed
     } catch (error) {
       // User denied account access...
-      console.log("denied", error)
+      console.log("denied", error);
     }
   } else {
-    if (typeof web3 !== 'undefined') {
-      console.warn("web3 not undefined")
+    if (typeof web3 !== "undefined") {
+      console.warn("web3 not undefined");
       web3 = new Web3(web3.currentProvider);
     } else {
-      console.warn("web3 undefined. setting to localhost")
+      console.warn("web3 undefined. setting to localhost");
       // set the provider you want from Web3.providers
-      web3 = new Web3('http://localhost:8545');
+      web3 = new Web3("http://localhost:8545");
     }
   }
 
   initializeContract();
-}
+};
 
 export const getWeb3 = async () => {
-  if (typeof web3 == 'undefined') {
+  if (typeof web3 == "undefined") {
     console.error("please init web3");
-    return;;
+    return;
   }
 
   return web3;
-}
+};
 
 export const getBlockNumber = async () => {
   const latestBlockNumber = await web3.eth.getBlockNumber();
   return latestBlockNumber;
-}
+};

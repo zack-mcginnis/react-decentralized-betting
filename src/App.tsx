@@ -1,7 +1,7 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import { initializeWeb3, getWeb3, getBlockNumber} from './services/web3';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import { initializeWeb3, getWeb3, getBlockNumber} from "./services/web3";
 
 function App() {
 
@@ -11,9 +11,9 @@ function App() {
     const web3 = await getWeb3();
     console.log(web3);
 
-    let accounts = await web3.eth.getAccounts();
+    // let accounts = await web3.eth.getAccounts();
 
-  }
+  };
 
   initialize();
 
